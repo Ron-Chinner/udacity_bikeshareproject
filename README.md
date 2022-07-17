@@ -36,7 +36,7 @@ washington.csv
 ### Credits
 
 Mikes coding tutorial for the basics on :https://www.youtube.com/watch?v=P4x7a2GCxvY
-Udacity Courses. 
+Udacity Courses. <https://www.udacity.com/course/programming-for-data-science-nanodegree--nd104?>
 Info on Datetime Functions: https://blog.finxter.com/how-to-work-with-dates-and-times-in-python/
 
 
