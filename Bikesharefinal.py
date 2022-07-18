@@ -21,7 +21,7 @@ def get_filters():
         (str) day - name of the day of week to filter by, or "all"
     """
     print('Hello! Let\'s explore some US bikeshare data!')
-    # get user input for city (chicago, new york city, washington)
+    # Get user input for city (Chicago, New York City, Washington)
     while True:
 
         print("please choose a city or the first three letters of one")
@@ -33,7 +33,7 @@ def get_filters():
         else:
             break
 
-    # get user input for month (all, january, february, ... , june)
+    # Get user input for month (all, January, February, ... , June)
 
     while True:
         print("please select a month")
@@ -45,7 +45,7 @@ def get_filters():
         else:
             break
 
-    # get user input for day of week (all, monday, tuesday, ... sunday)
+    # Get user input for day of week (all, Monday, Tuesday, ... Sunday)
     while True:
         print('please select a day of the week')
         print('if you select "all" no filter will be applied')
@@ -86,24 +86,24 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
-    # loading the corresponding csv
+    # Loading the corresponding csv
     df = pd.read_csv(CITY_DATA[city])
 
     # Start Time to datetime conversion
     df['Start Time'] = pd.to_datetime(df['Start Time'])
 
-    # get month and day of week from the created 'Start Time' column
+    # Get month and day of week from the created 'Start Time' column
     df['month'] = df['Start Time'].dt.month
     df['day_of_week'] = df['Start Time'].dt.day_name()
 
     if month != 'all':
-        # index months ls to retrieve int
+        # Index months ls to retrieve int
         months = ['january', 'february', 'march', 'april', 'may', 'june']
         month = months.index(month) + 1
-    # month filter for new df
+    # Month filter for new df
         df = df[df['month'] == month]
 
-    # if day filter is used
+    # If day filter is used
     if day != 'all':
         df = df[df['day_of_week'] == day.title()]
 
@@ -134,16 +134,16 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # display the most common month
+    # Display the most common month
     most_common_month = df['month'].mode()[0]
     print('Most Common Month:', calendar.month_name[most_common_month])
 
-    # display the most common day of week
+    # Display the most common day of week
     most_common_day = df['day_of_week'].mode()[0]
     print('Most Common Day:', most_common_day)
 
-    # display the most common start hour
-    # first take hour from 'Start Time'
+    # Display the most common start hour
+    # First take hour from 'Start Time'
     df['hour'] = df['Start Time'].dt.hour
 
     most_common_hour = df['hour'].mode()[0]
@@ -159,15 +159,15 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # displaying most commonly used start station
+    # Displaying most commonly used start station
     most_common_start = df['Start Station'].mode()[0]
     print('Most frequented departure point is:', most_common_start)
 
-    # displaying most commonly used end station
+    # Displaying most commonly used end station
     most_common_end = df['End Station'].mode()[0]
     print('Most frequent End Station:', most_common_end)
 
-    # display most frequent combination of start station and end station trip
+    # Display most frequent combination of start station and end station trip
     df['combo'] = df['Start Station']+" "+"to"+" "+df['End Station']
     combo = df['combo'].mode()[0]
     print(f"The most common departure-end combination is {combo}")
@@ -182,17 +182,17 @@ def trip_duration_stats(df):
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    # display total travel time
+    # Display total travel time
     travel_time = df['Trip Duration'].sum()
-    # minute, second conversion.
+    # Minute, second conversion.
     minute, second = divmod(travel_time, 60)
-    # hour, minutes conversion
+    # Hour, minutes conversion
     hour, minute = divmod(minute, 60)
-    # f string to print hour,minute and seconds.
+    # F string to print hour,minute and seconds.
     print(f" The total travel time is is {hour} hours")
     print(f" {minute} minutes and {second} seconds.")
 
-    # display mean travel time
+    # Display mean travel time
     mean_time = round(df['Trip Duration'].mean())
     print(f"The average time is {mean_time} minutes")
     print(f"or {mean_time/60} hours")
@@ -236,6 +236,7 @@ def restart_program():
         print("thank you for taking the time to check out my program:")
         print("to see some of my other projects")
         print("visit my github on <https://github.com/Ron-Chinner> ")
+        print("visit my LinkedIn on <https://www.linkedin.com/in/rchinner/>")
         exit()
 
 
