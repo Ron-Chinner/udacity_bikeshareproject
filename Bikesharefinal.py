@@ -236,6 +236,7 @@ def restart_program():
         print("thank you for taking the time to check out my program:")
         print("to see some of my other projects")
         print("visit my github on <https://github.com/Ron-Chinner> ")
+        print("visit my LinkedIn on <https://www.linkedin.com/in/rchinner/>")
         exit()
 
 
